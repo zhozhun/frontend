@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Bodega</title>
+</head>
+
+<body>
+  <main class="mainContainer">
+    <div class="container">
+
+      <!-- logo -->
+      <div class="logo"></div>
+
+      <!-- barra navegacion -->
+      <nav class="navbar" style="background-color: white;">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active custom-nav-link" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </nav>
+
+      <!-- carrusel -->
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/national-cancer-institute-byGTytEGjBo-unsplash.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/national-cancer-institute-NNpo-liY5aU-unsplash.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/louis-reed-pwcKF7L4-no-unsplash.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- metodos -->
+
+    import React, { useState } from 'react';
+
+    const AgregarProducto = () => {
+    const [producto, setProducto] = useState('');
+
+    const agregarProducto = () => {
+    // Lógica para agregar el producto al inventario
+    // Puedes almacenar los productos en un estado local o enviarlos a un servidor
+    console.log('Producto agregado:', producto);
+    setProducto('');
+    };
+
+    return (
+    <div>
+      <h2>Agregar Producto</h2>
+      <input type="text" value={producto} onChange={(e)=> setProducto(e.target.value)}
+      placeholder="Nombre del producto"
+      />
+      <button onClick={agregarProducto}>Agregar</button>
+    </div>
+    );
+    };
+
+    export default AgregarProducto;
+
+    import React, { useState } from 'react';
+
+const EliminarProducto = () => {
+  const [producto, setProducto] = useState('');
+
+  const eliminarProducto = () => {
+    // Lógica para eliminar el producto del inventario
+    console.log('Producto eliminado:', producto);
+    setProducto('');
+  };
+
+  return (
+    <div>
+      <h2>Eliminar Producto</h2>
+      <input
+        type="text"
+        value={producto}
+        onChange={(e) => setProducto(e.target.value)}
+        placeholder="Nombre del producto"
+      />
+      <button onClick={eliminarProducto}>Eliminar</button>
+    </div>
+  );
+};
+
+export default EliminarProducto;
+
+import React, { useState } from 'react';
+
+const BuscarProducto = () => {
+  const [producto, setProducto] = useState('');
+  const [productoEncontrado, setProductoEncontrado] = useState(null);
+
+  const buscarProducto = () => {
+    // Lógica para buscar el producto en el inventario
+    // Puedes buscar en el estado local o realizar una llamada a un servidor
+    console.log('Buscando producto:', producto);
+    const productoEncontrado = {}; // Obtén los detalles del producto encontrado
+    setProductoEncontrado(productoEncontrado);
+  };
+
+  return (
+    <div>
+      <h2>Buscar Producto</h2>
+      <input
+        type="text"
+        value={producto}
+        onChange={(e) => setProducto(e.target.value)}
+        placeholder="Nombre del producto"
+      />
+      <button onClick={buscarProducto}>Buscar</button>
+      {productoEncontrado && (
+        <div>
+          <h3>{productoEncontrado.nombre}</h3>
+          <p>{productoEncontrado.descripcion}</p>
+          {/* Mostrar más detalles del producto encontrado */}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default BuscarProducto;
+
+
+  </main>
+
+</body>
+
+</html>
