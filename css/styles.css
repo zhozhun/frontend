@@ -45,3 +45,7 @@ background-color: white;
     top: 50px;
     left: 300px;
 }
+
+.metodos {
+    display: none;
+}

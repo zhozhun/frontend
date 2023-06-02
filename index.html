@@ -72,95 +72,91 @@
     </div>
 
     <!-- metodos -->
+    <div class="metodos">
+      import React, { useState } from 'react';
 
-    import React, { useState } from 'react';
+      const AgregarProducto = () => {
+      const [producto, setProducto] = useState('');
 
-    const AgregarProducto = () => {
-    const [producto, setProducto] = useState('');
+      const agregarProducto = () => {
+      // Lógica para agregar el producto al inventario
+      // Puedes almacenar los productos en un estado local o enviarlos a un servidor
+      console.log('Producto agregado:', producto);
+      setProducto('');
+      };
 
-    const agregarProducto = () => {
-    // Lógica para agregar el producto al inventario
-    // Puedes almacenar los productos en un estado local o enviarlos a un servidor
-    console.log('Producto agregado:', producto);
-    setProducto('');
-    };
-
-    return (
-    <div>
-      <h2>Agregar Producto</h2>
-      <input type="text" value={producto} onChange={(e)=> setProducto(e.target.value)}
-      placeholder="Nombre del producto"
-      />
-      <button onClick={agregarProducto}>Agregar</button>
-    </div>
-    );
-    };
-
-    export default AgregarProducto;
-
-    import React, { useState } from 'react';
-
-const EliminarProducto = () => {
-  const [producto, setProducto] = useState('');
-
-  const eliminarProducto = () => {
-    // Lógica para eliminar el producto del inventario
-    console.log('Producto eliminado:', producto);
-    setProducto('');
-  };
-
-  return (
-    <div>
-      <h2>Eliminar Producto</h2>
-      <input
-        type="text"
-        value={producto}
-        onChange={(e) => setProducto(e.target.value)}
+      return (
+      <div>
+        <h2>Agregar Producto</h2>
+        <input type="text" value={producto} onChange={(e)=> setProducto(e.target.value)}
         placeholder="Nombre del producto"
-      />
-      <button onClick={eliminarProducto}>Eliminar</button>
-    </div>
-  );
-};
+        />
+        <button onClick={agregarProducto}>Agregar</button>
+      </div>
+      );
+      };
 
-export default EliminarProducto;
+      export default AgregarProducto;
 
-import React, { useState } from 'react';
+      import React, { useState } from 'react';
 
-const BuscarProducto = () => {
-  const [producto, setProducto] = useState('');
-  const [productoEncontrado, setProductoEncontrado] = useState(null);
+      const EliminarProducto = () => {
+      const [producto, setProducto] = useState('');
 
-  const buscarProducto = () => {
-    // Lógica para buscar el producto en el inventario
-    // Puedes buscar en el estado local o realizar una llamada a un servidor
-    console.log('Buscando producto:', producto);
-    const productoEncontrado = {}; // Obtén los detalles del producto encontrado
-    setProductoEncontrado(productoEncontrado);
-  };
+      const eliminarProducto = () => {
+      // Lógica para eliminar el producto del inventario
+      console.log('Producto eliminado:', producto);
+      setProducto('');
+      };
 
-  return (
-    <div>
-      <h2>Buscar Producto</h2>
-      <input
-        type="text"
-        value={producto}
-        onChange={(e) => setProducto(e.target.value)}
+      return (
+      <div>
+        <h2>Eliminar Producto</h2>
+        <input type="text" value={producto} onChange={(e)=> setProducto(e.target.value)}
         placeholder="Nombre del producto"
-      />
-      <button onClick={buscarProducto}>Buscar</button>
-      {productoEncontrado && (
+        />
+        <button onClick={eliminarProducto}>Eliminar</button>
+      </div>
+      );
+      };
+
+      export default EliminarProducto;
+
+      import React, { useState } from 'react';
+
+      const BuscarProducto = () => {
+      const [producto, setProducto] = useState('');
+      const [productoEncontrado, setProductoEncontrado] = useState(null);
+
+      const buscarProducto = () => {
+      // Lógica para buscar el producto en el inventario
+      // Puedes buscar en el estado local o realizar una llamada a un servidor
+      console.log('Buscando producto:', producto);
+      const productoEncontrado = {}; // Obtén los detalles del producto encontrado
+      setProductoEncontrado(productoEncontrado);
+      };
+
+      return (
+      <div>
+        <h2>Buscar Producto</h2>
+        <input type="text" value={producto} onChange={(e)=> setProducto(e.target.value)}
+        placeholder="Nombre del producto"
+        />
+        <button onClick={buscarProducto}>Buscar</button>
+        {productoEncontrado && (
         <div>
           <h3>{productoEncontrado.nombre}</h3>
           <p>{productoEncontrado.descripcion}</p>
           {/* Mostrar más detalles del producto encontrado */}
         </div>
-      )}
-    </div>
-  );
-};
+        )}
+      </div>
+      );
+      };
 
-export default BuscarProducto;
+      export default BuscarProducto;
+
+    </div>
 
 
   </main>
